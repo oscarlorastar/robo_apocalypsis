@@ -20,7 +20,8 @@ class Enemy(pygame.sprite.Sprite):
         self.health = 4
         self.hurt_timer = 0
         self.damage = 1
-
+        self.x_move = 0
+        self.y_move = 0
 
     def update(self, projectiles):
 
@@ -37,7 +38,6 @@ class Enemy(pygame.sprite.Sprite):
             if self.rect.colliderect(projectile.rect):
                 self.get_hit(projectile.damage)
                 projectile.explode()
-
 
         if self.hurt_timer <= 0:
             image_to_rotate = self.image
@@ -58,5 +58,3 @@ class Enemy(pygame.sprite.Sprite):
         if self.health <= 0:
             self.health = 999999
             self.kill()
-
-

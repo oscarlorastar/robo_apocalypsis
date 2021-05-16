@@ -27,9 +27,7 @@ class Player(pygame.sprite.Sprite):
         self.health_bar_red = pygame.Rect(0, 0, self.health_bar_width, self.health_bar_height) 
         self.alive = True
         self.hurt_timer = 0
-        
-        
-    # loop
+
     def update(self, enemies):
         self.rect.center = (self.x, self.y)
 
@@ -37,7 +35,6 @@ class Player(pygame.sprite.Sprite):
             if self.rect.colliderect(enemy.rect):
                 enemy.get_hit(0)
                 self.get_hit(enemy.damage)
-                
 
         if self.shoot_timer > 0:
             self.shoot_timer -= 1
@@ -69,15 +66,19 @@ class Player(pygame.sprite.Sprite):
         if self.alive:
             pygame.draw.rect(self.screen, (0, 255, 0), self.health_bar_green)
     # move
+
     def move_down(self):
         if self.alive:
             self.y += self.speed
+
     def move_right(self):
         if self.alive:
             self.x += self.speed
+
     def move_up(self):
         if self.alive:        
             self.y -= self.speed
+
     def move_left(self):
         if self.alive:
             self.x -= self.speed
