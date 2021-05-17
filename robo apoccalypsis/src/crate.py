@@ -1,5 +1,6 @@
 import pygame
 
+
 class Crate(pygame.sprite.Sprite):
     def __init__(self, screen, x, y):
         pygame.sprite.Sprite.__init__(self, self.containers)

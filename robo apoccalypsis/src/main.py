@@ -3,6 +3,7 @@ import random
 from player import Player
 from projectile import waterballon
 from enemy import Enemy
+from crate import Crate
 
 # Start the game
 pygame.init()
@@ -18,17 +19,20 @@ background_image = pygame.image.load("../assets/BG_Sand.png")
 playerGroup = pygame.sprite.Group()
 projectilesGroup = pygame.sprite.Group()
 enemiesGroup = pygame.sprite.Group()
+cratesGroup = pygame.sprite.Group()
 
 
 Player.containers = playerGroup
 waterballon.containers = projectilesGroup
 Enemy.containers = enemiesGroup
+Crate.containers = cratesGroup
 
 enemy_spawn_timer_max = 80
 enemy_spawn_timer = 0
 
 mr_player = Player(screen, game_width/2, game_height/2)
 
+Crate (screen, 100, 100)
 
 # ***************** Loop Land Below *****************
 # Everything under 'while running' will be repeated over and over again
@@ -77,6 +81,9 @@ while running:
 
     for enemy in enemiesGroup:
         enemy.update(projectilesGroup)
+
+    for crate in cratesGroup:
+        crate.update()
 
     mr_player.update(enemiesGroup)
     

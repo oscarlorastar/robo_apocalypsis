@@ -67,15 +67,15 @@ class Player(pygame.sprite.Sprite):
             pygame.draw.rect(self.screen, (0, 255, 0), self.health_bar_green)
     # move
 
-    def move_down(self):
+    def move_down(self, crates):
         if self.alive:
             self.y += self.speed
 
-    def move_right(self):
+    def move_right(self, crates):
         if self.alive:
             self.x += self.speed
 
-    def move_up(self):
+    def move_up(self, crates):
         if self.alive:        
             self.y -= self.speed
 
